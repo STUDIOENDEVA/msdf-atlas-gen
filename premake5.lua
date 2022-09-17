@@ -7,8 +7,8 @@ project "msdf-atlas-gen"
     staticruntime "off"
     location "%{wks.location}/ProjectFiles"
 
-    targetdir ("%{wks.location}/Build/bin/" .. outputdir .. "/%{prj.name}")
-    objdir ("%{wks.location}/Build/int/" .. outputdir .. "/%{prj.name}")
+    targetdir (libdir .. "/%{prj.name}")
+    objdir (intdir .. "/%{prj.name}")
 
     files
     {
