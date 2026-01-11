@@ -4,11 +4,11 @@ project "msdf-atlas-gen"
     kind "StaticLib"
     language "C++"
     cppdialect "C++17"
-    staticruntime "off"
-    location "%{wks.location}/ProjectFiles"
+    staticruntime "On"
+    location (path.join(project_root, "build"))
 
-    targetdir (libdir .. "/%{prj.name}")
-    objdir (intdir .. "/%{prj.name}")
+    targetdir ("%{bindir}/%{prj.name}")
+    objdir ("%{intdir}/%{prj.name}")
 
     files
     {
@@ -34,6 +34,9 @@ project "msdf-atlas-gen"
     {
        "msdfgen"
     }
+
+    filter "system:linux or system:macosx"
+        pic "On"
 
     filter "configurations:Debug"
         runtime "Debug"
